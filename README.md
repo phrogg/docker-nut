@@ -4,9 +4,9 @@ An application for serving Switch titles.
 
 ## Getting Started With Docker
 
-### Note about nut v2
-
-Nut v2 no longer has a web gui, only the api works.
+> **Note about nut v2**
+>
+> Nut v2 no longer has a web gui, only the api works.
 
 Here are some example snippets to help you get started creating a container.
 
