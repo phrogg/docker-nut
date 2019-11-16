@@ -75,13 +75,15 @@ RUN \
 # TODO: For now, we aren't going to compile hactool, since it doesn't appear to be used anywhere
 
 # Install the dependencies
-RUN pip install -U colorama pyopenssl requests tqdm unidecode image bs4 urllib3 flask
+RUN pip install -U colorama pyopenssl requests tqdm unidecode Pillow BeautifulSoup4 urllib3 Flask pyusb google-api-python-client google-auth-oauthlib
 
 ENV PYTHONIOENCODING="UTF-8"
 
 # Install the nut application from the root of this repo
 # TODO: Install from git directly so that the image stays up to date. Not sure if we can ever do that though.
-RUN git clone --recurse-submodules -j8 https://github.com/blawar/nut /app/nut
+RUN git clone --depth 1 --recurse-submodules -j8 https://github.com/blawar/nut /app/nut && \
+  rm -rf /app/nut/.git
+
 ADD . /app/nut
 
 # Copy s6 overlay files
