@@ -2,6 +2,8 @@ FROM lsiobase/alpine:3.9
 
 # TODO: We're including the entire LSIO python command since we still need the build-dependencies packages to compile hactool if it ever gets used again. Also, this way we use the multi-arch docker images that Linux Server makes, but with python3.
 
+ENV VERSION v2.3
+
 RUN \
  echo "**** install build packages ****" && \
  apk add --no-cache --virtual=build-dependencies \
@@ -79,12 +81,11 @@ RUN pip install -U colorama pyopenssl requests tqdm unidecode Pillow BeautifulSo
 
 ENV PYTHONIOENCODING="UTF-8"
 
-# Install the nut application from the root of this repo
-# TODO: Install from git directly so that the image stays up to date. Not sure if we can ever do that though.
+# Install the nut application from github
 RUN git clone --depth 1 --recurse-submodules -j8 https://github.com/blawar/nut /app/nut && \
-  rm -rf /app/nut/.git
-
-ADD . /app/nut
+  cd /app/nut && \
+  git checkout ${VERSION} && \
+  rm -rf /app/nut/.git /app/nut/conf
 
 # Copy s6 overlay files
 COPY root/ /

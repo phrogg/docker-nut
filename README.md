@@ -4,6 +4,10 @@ An application for serving Switch titles.
 
 ## Getting Started With Docker
 
+### Note about nut v2
+
+Nut v2 no longer has a web gui, only the api works.
+
 Here are some example snippets to help you get started creating a container.
 
 Once you run these commands, you should be able to visit `http://<your-ip>:9000`, username `guest`, password `guest`.
@@ -17,7 +21,7 @@ This is a modified version of [doctorpangloss/nut](https://github.com/doctorpang
 ```
 docker create \
   --name=nut \
-  --net=host
+  --net=host \
   -e PUID=1000 \
   -e PGID=1000 \
   -v </path/to/games>:/games \
@@ -27,6 +31,21 @@ docker create \
   jordond/nut
 ```
 
+By default version the current latest version v2.3 of `nut` will be installed, you can override this by passing `--env VERSION=xxx`, like so:
+
+```
+docker create \
+  --name=nut \
+  --net=host \
+  -e VERSION=v2.3
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -v </path/to/games>:/games \
+  -v </optional/path/to/config>:/config \
+  -v </optional/path/to/data>:/data \
+  --restart unless-stopped \
+  jordond/nut
+```
 
 ### docker-compose
 

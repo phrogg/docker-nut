@@ -18,6 +18,9 @@
 [[ ! -d /data/titledb ]] && \
     cp -r /app/nut/titledb /data
 
+[[ ! -d /app/nut/conf ]] && \
+		echo "Creating symlink" && ln -sf /config /app/nut/conf
+
 # check config and data
 PUID=${PUID:-911}
 if [ ! "$(stat -c %u /config)" = "$PUID" ]; then
