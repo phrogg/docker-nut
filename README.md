@@ -119,22 +119,6 @@ It can download any titles you do not have a key for (for archiving), by enablin
 
 ![alt text](https://raw.githubusercontent.com/blawar/nut/master/public_html/images/ss.jpg)
 
----------
-
-## Usage
- - Download [`nut`](https://github.com/blawar/nut/archive/master.zip)
- - If you'd like to download from the CDN, place everything in your already configured CDNSP directory. Specifically, you'll need:
-	- `Certificate.cert`
-	- `nx_tls_client_cert.pem`
-	- `keys.txt`
- - Install Python 3.6+
- - Install the following modules via `pip`:
- 	 - `pip3 install colorama pyopenssl requests tqdm unidecode image bs4 urllib3 flask pyqt5`
- - Configure `nut.conf` (see below)
- - Run `python3 nut.py --help` to understand options
-
 # Credits
-- Original CDNSP
-- Hactool by SciresM (https://github.com/SciresM/)
-- Simon (https://github.com/simontime/) for his seemingly endless CDN knowledge and help.
-- SplatGamer
+- blawar for [nut](http://github.com/blawar/nut)
+- doctorpangloss for the [original docker](https://github.com/doctorpangloss/nut) container.
