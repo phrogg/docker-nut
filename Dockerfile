@@ -2,7 +2,7 @@ FROM lsiobase/alpine:3.9
 
 # TODO: We're including the entire LSIO python command since we still need the build-dependencies packages to compile hactool if it ever gets used again. Also, this way we use the multi-arch docker images that Linux Server makes, but with python3.
 
-ENV VERSION v2.3
+ENV VERSION v2.4
 
 RUN \
  echo "**** install build packages ****" && \
