@@ -55,7 +55,7 @@ Compatible with docker-compose v2 schemas.
 version: "2"
 services:
   plex:
-    image: dockerpangloss/nut
+    image: jordond/nut
     container_name: nut
     network_mode: host
     environment:
